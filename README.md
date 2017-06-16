@@ -1,4 +1,4 @@
 # Input.js
 
-Unity style Input Manager
+Unity style Input Manager for JavaScript
 
