@@ -34,7 +34,7 @@ var Input =
     listenForMouse : true,
     eventMode : false,
 
-    mouseVelocity : {
+    velocity : {
         x:0,
         y:0
     },
@@ -123,7 +123,7 @@ Input.setMouse = function()
 
         if(self.eventMode)
         {
-            self.emit('mouseDown', e);
+            self.emit('mouseDown');
             self.checkButton(e, "leftMouseDown", "middleMouseDown", "rightMouseDown");
         }
         else{
@@ -413,8 +413,8 @@ Input.checkButton = function(e, leftEmitter, middleEmitter, rightEmitter)
 }
 Input.updateVelocity = function(e)
 {
-    this.mouseVelocity.x = this.clientPosition.x - this.lastPosition.x;
-    this.mouseVelocity.y = this.clientPosition.y - this.lastPosition.y;
+    this.velocity.x = this.clientPosition.x - this.lastPosition.x;
+    this.velocity.y = this.clientPosition.y - this.lastPosition.y;
 
     this.lastPosition.x = this.clientPosition.x;
     this.lastPosition.y = this.clientPosition.y;
@@ -448,8 +448,8 @@ Input.update = function()
     this.currentPressedKeyDown = null;
     this.currentPressedKeyUp = null;
 
-    this.mouseVelocity.x = 0;
-    this.mouseVelocity.y = 0;
+    this.velocity.x = 0;
+    this.velocity.y = 0;
 }
 Input.on = function(listener, listenerFunction)
 {

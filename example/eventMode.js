@@ -41,10 +41,10 @@ Input.on('rightMouseUp', function(e){
 })
 
 Input.on('mouseMove', function(e){
-    updateText("moving mouse " + "X Velocity: " + Input.mouseVelocity.x + " Y Velocity: " + Input.mouseVelocity.y)
+    updateText("moving mouse " + "X Velocity: " + Input.velocity.x + " Y Velocity: " + Input.velocity.y)
 })
-Input.on('mouseWheel', function(e){
-    if(e.deltaY > 0)
+Input.on('mouseWheel', function(delta){
+    if(delta > 0)
         updateText("mouse wheel move down")
     else 
         updateText("mouse wheel move up")
@@ -58,9 +58,12 @@ Input.on('touch', function(){
     updateText("Touch start")
 })
 Input.on('touchMove', function(){
-    updateText("Touch Move " + "X: " + Input.mouseVelocity.x + " Y Velocity: " + Input.mouseVelocity.y)
+    updateText("Touch Move " + "X: " + Input.velocity.x + " Y Velocity: " + Input.velocity.y)
 })
 Input.on('touchEnd', function(){
     updateText("Touch end")
+})
+Input.on("touchHeld", function(){
+    updateText("Touch Held")
 })
 
