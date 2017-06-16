@@ -124,7 +124,7 @@ Input.setMouse = function()
         if(self.eventMode)
         {
             self.emit('mouseDown', e);
-            self.checkButton(e, "leftClick", "middleClick", "rightClick");
+            self.checkButton(e, "leftMouseDown", "middleMouseDown", "rightMouseDown");
         }
         else{
             self.buttons[e.button] = true;

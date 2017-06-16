@@ -16,15 +16,15 @@ Input.on('keyup', function(key){
     updateText(key + " up");
 })
 
-Input.on('leftClick', function(e){
+Input.on('leftMouseDown', function(e){
     updateText("left mouse down")
 })
 
-Input.on('middleClick', function(e){
+Input.on('middleMouseDown', function(e){
     updateText("middle mouse down")
 })
 
-Input.on('rightClick', function(e){
+Input.on('rightMouseDown', function(e){
     updateText("right mouse down")
 })
 
