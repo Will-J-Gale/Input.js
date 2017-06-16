@@ -191,7 +191,7 @@ Input.setMouse = function()
     this.onMouseWheel = function(e)
     {
         if(self.eventMode)
-            self.emit("mouseWheel", e);
+            self.emit("mouseWheel", e.deltaY);
     }
 
     window.addEventListener('mousedown', this.onClick, false)
@@ -238,7 +238,11 @@ Input.setTouch = function()
         }
         self.clientX = e.touches[0].clientX;
         self.clientY = e.touches[0].clientY;
-        e.preventDefault();
+
+        self.clientPosition.x = self.clientX;
+        self.clientPosition.y = self.clientY;
+
+        self.updateVelocity();
 
         self.emit("touchMove", e);
     }
@@ -401,11 +405,11 @@ Input.getKeyUp = function(key)
 Input.checkButton = function(e, leftEmitter, middleEmitter, rightEmitter)
 {
     if(e.button == Input.MOUSE.LEFT)
-        this.emit(leftEmitter, e);
+        this.emit(leftEmitter, "left");
     else if(e.button == Input.MOUSE.MIDDLE)
-        this.emit(middleEmitter, e);
+        this.emit(middleEmitter, "middle");
     else if(e.button == Input.MOUSE.RIGHT)
-        this.emit(rightEmitter, e);
+        this.emit(rightEmitter, "right");
 }
 Input.updateVelocity = function(e)
 {
