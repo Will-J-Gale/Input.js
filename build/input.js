@@ -299,6 +299,9 @@ Input.setKeys = function()
     this.onKeyDown = function(e)
     {
         var key = e.key;
+
+        //Deal with special keys like !£$%"" etc using "e.code" numbers are "Digit1" etc
+        //I've not done much testing on it yet
         if(key == "Tab" || key == "Alt")
             e.preventDefault();
         else if(key == " ")
@@ -450,6 +453,8 @@ Input.update = function()
 
     this.velocity.x = 0;
     this.velocity.y = 0;
+
+    this.hasHeld = false;
 }
 Input.on = function(listener, listenerFunction)
 {
@@ -466,7 +471,7 @@ Input.MOUSE = {
     RIGHT: 2
 }
 
-
+//Add enable and disable!!!
 /**
  * 
  * 'leftClick'
